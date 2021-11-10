@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,10 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/admin1', function () {
-    return view('admin1');
-});
-Route::get('/admin2', function () {
-    return view('admin2');
+Route::get('/produk', function () {
+    return view('produk.product');
 });
 
+Route::get('/admin', function () {
+    return view('dashboard');
+});
+
+Route::get('/produk',[ProdukController::class, 'index'])
+->name('produk');
